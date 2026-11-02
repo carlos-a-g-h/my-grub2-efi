@@ -16,9 +16,6 @@ jobs:
       - name: Build the image
         run: bash build_image.sh
 
-      - name: Add Info
-        run: bash add_info.sh
-
       - name: Create GH Release
         uses: softprops/action-gh-release@v3
         with:
