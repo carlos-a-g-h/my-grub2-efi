@@ -2,5 +2,5 @@
 
 set -eux
 
-apt-get update
-apt-get install -yy grub-common grub-efi-amd64-bin zip
+sudo apt-get update
+sudo apt-get install -yy grub-common grub-efi-amd64-bin zip
