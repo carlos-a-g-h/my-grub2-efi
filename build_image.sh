@@ -5,7 +5,7 @@ set -eux
 OUTDIR="dist"
 FNAME="grub2.x86_64.efi"
 OUTPATH="$OUTDIR"/"$FNAME"
-GRUB_PREFIX="grub"
+GRUB_PREFIX="grub2"
 
 # Create the output directory
 
