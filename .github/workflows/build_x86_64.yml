@@ -22,7 +22,7 @@ jobs:
       - id: tag
         name: Generate a tag for the release
         run: |
-          LINE="tag=$(date '+%Y-%m-%d_%H-%M')"
+          LINE="tag=$(date '+%Y-%m-%d-%H-%M')"
           echo "$LINE"
           echo "$LINE" >> "$GITHUB_OUTPUT"
 
