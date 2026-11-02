@@ -31,5 +31,5 @@ jobs:
         with:
           tag_name: "${{ steps.tag.outputs.tag }}"
           make_latest: true
-          generate_release_notes: true
+          generate_release_notes: false
           files: dist/*
