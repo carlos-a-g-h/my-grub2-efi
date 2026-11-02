@@ -22,7 +22,9 @@ jobs:
       - id: tag
         name: Generate a tag for the release
         run: |
-          echo "tag=release-$(date date '+%Y-%m-%d_%H-%M')" >> "$GITHUB_OUTPUT"
+          LINE="tag=$(date '+%Y-%m-%d_%H-%M')"
+          echo "$LINE"
+          echo "$LINE" >> "$GITHUB_OUTPUT"
 
       - name: Create the release
         uses: softprops/action-gh-release@v3
