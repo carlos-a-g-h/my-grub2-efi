@@ -1,4 +1,4 @@
-name: Build x86_64 EFI File
+name: Build and release (x86_64)
 
 permissions:
   contents: write
@@ -19,10 +19,15 @@ jobs:
       - name: Build the image
         run: bash build_image.sh
 
-      - name: Create GH Release
+      - id: tag
+        name: Generate a tag for the release
+        run: |
+          echo "tag=release-$(date date '+%Y-%m-%d_%H-%M')" >> "$GITHUB_OUTPUT"
+
+      - name: Create the release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: "${{ github.sha }}"
+          tag_name: "${{ steps.tag.outputs.tag }}"
           make_latest: true
           generate_release_notes: true
           files: dist/*
