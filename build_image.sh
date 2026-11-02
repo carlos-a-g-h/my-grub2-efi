@@ -26,8 +26,8 @@ MODULES=(
 )
 
 grub-mkimage \
-	--format=="x86_64-efi" \
-	--directory=="/usr/lib/grub/x86_64-efi" \
+	--format="x86_64-efi" \
+	--directory="/usr/lib/grub/x86_64-efi" \
 	--output="$OUTPATH" \
 	--prefix="$GRUB_PREFIX" \
 	"${MODULES[@]}"
