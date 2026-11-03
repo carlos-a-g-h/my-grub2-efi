@@ -10,8 +10,6 @@ The image is made with "/grub2/" as the prefix, so place your grub.cfg like this
 /grub2/grub.cfg
 ```
 
-Make sure to read the modules file in the chosen release if you would like to know what modules are being included in the Grub2 dot EFI file
-
 ## DISCLAIMER
 
 This repository is NOT OFFICIAL and the EFI binaries that are being released here are NOT SIGNED
