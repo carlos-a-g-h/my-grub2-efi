@@ -4,6 +4,8 @@ set -eux
 
 GH_SHA="$1"
 GH_REL_TAG="$2"
+if [ -z "$GH_SHA" ]; then echo "GH_SHA is empty"; exit 1; fi
+if [ -z "$GH_REL_TAG" ]; then echo "GH_REL_TAG is empty"; exit 1; fi
 
 GH_CONST_REPO_OWNER="carlos-a-g-h"
 GH_CONST_REPO_NAME="ubp-grub2-efi"
