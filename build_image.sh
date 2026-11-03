@@ -2,6 +2,12 @@
 
 set -eux
 
+GH_SHA="$1"
+GH_REL_TAG="$2"
+
+GH_CONST_REPO_OWNER="carlos-a-g-h"
+GH_CONST_REPO_NAME="ubp-grub2-efi"
+
 OUTDIR="dist"
 FNAME="grub2.x86_64.efi"
 OUTPATH="$OUTDIR"/"$FNAME"
@@ -34,9 +40,28 @@ grub-mkimage \
 
 # Write some info about the EFI file
 
-echo "${MODULES[@]}" > "$OUTPATH"".modules.txt"
-sha256sum "$OUTPATH" > "$OUTPATH"".hash.sha256.txt"
-md5sum "$OUTPATH" > "$OUTPATH"".hash.md5.txt"
+DETAILS="$OUTPATH"".details.txt"
+
+URL_COMMIT="https://github.com/""$GH_CONST_REPO_OWNER""/""$GH_CONST_REPO_NAME""/commit/""$GH_SHA"
+URL_RELEASE="https://github.com/""$GH_CONST_REPO_OWNER""/""$GH_CONST_REPO_NAME""/releases/tag/""$GH_REL_TAG"
+URL_BINARY="https://github.com/""$GH_CONST_REPO_OWNER""/""$GH_CONST_REPO_NAME""/releases/download/""$GH_REL_TAG""/""$FNAME"
+
+HASH_MD5=$(md5sum "$OUTPATH"|awk '{print $1}')
+HASH_SHA256=$(sha256sum "$OUTPATH"|awk '{print $1}')
+
+echo "DETAILS" > "$DETAILS"
+echo "
+URL_COMMIT $URL_COMMIT" >> "$DETAILS"
+echo "
+URL_RELEASE $URL_RELEASE" >> "$DETAILS"
+echo "
+URL_BINARY $URL_BINARY" >> "$DETAILS"
+echo "
+HASH_MD5 $HASH_MD5" >> "$DETAILS"
+echo "
+HASH_SHA256 $HASH_SHA256" >> "$DETAILS"
+echo "
+GRUB_MODULES ${MODULES[@]}" >> "$DETAILS"
 
 # Display the contents of the output directory
 
