@@ -13,18 +13,18 @@ jobs:
       - name: Check-out
         uses: actions/checkout@v4
 
-      - name: Install packages
-        run: bash install_packages.sh
-
-      - name: Build the image
-        run: bash build_image.sh
-
       - id: tag
         name: Generate a tag for the release
         run: |
           LINE="tag=$(date '+%Y-%m-%d-%H-%M')"
           echo "$LINE"
           echo "$LINE" >> "$GITHUB_OUTPUT"
+
+      - name: Install packages
+        run: bash install_packages.sh
+
+      - name: Build the image
+        run: bash build_image.sh  "${{ github.sha }}" "${{ steps.tag.outputs.tag }}"
 
       - name: Create the release
         uses: softprops/action-gh-release@v3
