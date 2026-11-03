@@ -1,5 +1,10 @@
 # Grub2 EFI image
 
+[![GitHub Downloads](https://img.shields.io/github/downloads/carlos-a-g-h/ubp-grub2-efi/total?logo=github&label=GitHub%20Downloads)](https://github.com/carlos-a-g-h/ubp-grub2-efi/releases/latest)
+
+[![CI Build Status](https://github.com/carlos-a-g-h/ubp-grub2-efi/actions/workflows/build_x86_64.yml/badge.svg)](https://github.com/carlos-a-g-h/ubp-grub2-efi/releases/latest)
+
+
 ## How to use
 
 Download the Grub2 dot EFI file from one of the releases, preferraly [the latest one](https://github.com/carlos-a-g-h/ubp-grub2-efi/releases/latest)
